@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">E Commerce Crocodic App</string>
+    <string name="kontak">Kontak</string>
+    <string name="my_account">My Account</string>
+    <string name="logging_in">Logging In…</string>
+    <string name="search_here">Search Here</string>
+</resources>

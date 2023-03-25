@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"
+        motion:motionInterpolator="cubic(0.65,0,0.13,1)">
+       <KeyFrameSet>
+       </KeyFrameSet>
+        <OnSwipe motion:springDamping="1.143"
+            motion:springMass="1.0"
+            motion:springStiffness="40.0"
+            motion:springStopThreshold="0.8846" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="-320dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/bottom_card" />
+        <Constraint
+            android:id="@+id/grey_blur"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/grey_blur"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="-40dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/bottom_card" />
+    </ConstraintSet>
+</MotionScene>

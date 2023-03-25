@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.ecommercecrocodicapp.data.User" />
+
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey"
+        app:layoutDescription="@xml/activity_home_xml_constraintlayout_scene">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/top_card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="-40dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/search_home"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/baseline_search_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:tint="@color/main_orange" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/sora_bold"
+                    android:text="Search"
+                    android:textColor="@color/main_orange"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/search_home" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_picture_case_home"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/profile_picture_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        imageUrl='@{user.image}'
+                        android:scaleType="centerCrop" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageButton
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="8dp"
+                    android:backgroundTint="@color/light_grey"
+                    android:src="@drawable/baseline_shopping_cart_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/profile_picture_case_home"
+                    app:tint="@color/main_orange" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_card_layout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_card_layout">
+
+            <LinearLayout
+                android:id="@+id/product_card_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginVertical="30dp"
+                android:background="@drawable/rounded_square_white"
+                app:cardCornerRadius="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/sora_bold"
+                    android:text="Produk Unggulan"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/home_item_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/grey_blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="#40000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bottom_card"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginBottom="-320dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="120dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_bg"
+                    android:fontFamily="@font/sora_regular"
+                    android:text="Semua Produk"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="40dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:listitem="@layout/home_item_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

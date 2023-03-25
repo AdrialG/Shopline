@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "417138219758",
+    "project_id": "shopline-3ba21",
+    "storage_bucket": "shopline-3ba21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417138219758:android:7c6f79ff9c19cf03df71ff",
+        "android_client_info": {
+          "package_name": "com.example.ecommercecrocodicapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417138219758-iia0rsilnd8lt65fejbso6nogksdr85a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsk2zHqnznbKsfuJgHGfNVP02ax_qFaaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417138219758-iia0rsilnd8lt65fejbso6nogksdr85a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
