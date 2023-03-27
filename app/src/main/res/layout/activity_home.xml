@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.example.ecommercecrocodicapp.data.User" />
+            type="com.adrialg.ecommercecrocodicapp.data.User" />
 
     </data>
 
@@ -43,6 +43,7 @@
                     app:tint="@color/main_orange" />
 
                 <TextView
+                    android:id="@+id/search_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -73,6 +74,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <ImageButton
+                    android:id="@+id/profile_cart"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_margin="8dp"
@@ -125,6 +127,7 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_unggul"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="80dp"
@@ -175,6 +178,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_all"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="20dp"

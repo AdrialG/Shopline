@@ -1,115 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/detail_image_top"
+    <data>
+
+        <variable
+            name="data"
+            type="com.adrialg.ecommercecrocodicapp.data.Product" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:src="@drawable/detail_top"
-        android:scaleType="fitXY"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/detail_back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/baseline_arrow_back_24"
-        android:layout_margin="5dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/detail_image_top"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:src="@drawable/detail_top"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/detail_slider"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageButton
+            android:id="@+id/detail_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:layout_margin="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/detail_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="2 quids"
-        android:textColor="@color/main_orange"
-        android:textSize="26sp"
-        android:fontFamily="@font/sora_regular"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="30dp"
-        app:layout_constraintTop_toBottomOf="@id/detail_image_top"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/detail_slider"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/detail_product_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="big shoe for big people"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:fontFamily="@font/sora_bold"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="30dp"
-        app:layout_constraintTop_toBottomOf="@id/detail_price"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/detail_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="2 quids"
+            android:textColor="@color/main_orange"
+            android:textSize="26sp"
+            android:fontFamily="@font/sora_regular"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_image_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/detail_fit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="for cats only"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:fontFamily="@font/sora_regular"
-        android:layout_marginHorizontal="30dp"
-        app:layout_constraintTop_toBottomOf="@id/detail_product_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/detail_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="big shoe for big people"
+            android:text='@{data.nameItem}'
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:fontFamily="@font/sora_bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/detail_description_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:fontFamily="@font/sora_bold"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="30dp"
-        app:layout_constraintTop_toBottomOf="@id/detail_fit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/detail_fit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="for cats only"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_regular"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_product_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/detail_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:text="this thingy for cats only la bro so badddddddddddddddddddd"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:fontFamily="@font/sora_regular"
-        android:layout_marginHorizontal="50dp"
-        app:layout_constraintTop_toBottomOf="@id/detail_description_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/detail_description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:fontFamily="@font/sora_bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_fit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button_bg"
-        android:text="Add To Cart"
-        android:textSize="16sp"
-        android:fontFamily="@font/sora_bold"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="this thingy for cats only la bro so badddddddddddddddddddd"
+            android:text='@{data.description}'
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_regular"
+            android:layout_marginHorizontal="50dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_description_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/detail_size_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Variant"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:fontFamily="@font/sora_bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/detail_colour_item_layout"
+            tools:itemCount="3"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_size_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_bg"
+            android:text="Add To Cart"
+            android:textSize="16sp"
+            android:fontFamily="@font/sora_bold"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

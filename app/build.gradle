@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.ecommercecrocodicapp'
+    namespace 'com.adrialg.ecommercecrocodicapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.ecommercecrocodicapp"
+        applicationId "com.adrialg.ecommercecrocodicapp"
         minSdk 24
         targetSdk 33
         versionCode 1

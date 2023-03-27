@@ -32,6 +32,15 @@
             android:exported="false">
         </activity>
 
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:exported="false">
+        </activity>
 
         <activity
             android:name=".ui.profile.ProfileActivity"

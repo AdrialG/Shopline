@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:417138219758:android:7c6f79ff9c19cf03df71ff",
+        "mobilesdk_app_id": "1:417138219758:android:5704bab9a185348adf71ff",
         "android_client_info": {
-          "package_name": "com.example.ecommercecrocodicapp"
+          "package_name": "com.adrialg.ecommercecrocodicapp"
         }
       },
       "oauth_client": [

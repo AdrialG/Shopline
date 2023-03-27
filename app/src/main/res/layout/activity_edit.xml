@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.example.ecommercecrocodicapp.data.User" />
+            type="com.adrialg.ecommercecrocodicapp.data.User" />
 
     </data>
 
