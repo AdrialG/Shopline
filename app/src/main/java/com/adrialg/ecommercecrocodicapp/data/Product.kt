@@ -61,6 +61,7 @@ data class Product(
         @Expose
         @SerializedName("updated_at")
         val updatedAt: String?,
+        var selected: Boolean
     ) : Parcelable
 
     @Parcelize
@@ -86,6 +87,7 @@ data class Product(
         @Expose
         @SerializedName("updated_at")
         val updatedAt: String?,
+        var selected: Boolean
     ) : Parcelable
 
 

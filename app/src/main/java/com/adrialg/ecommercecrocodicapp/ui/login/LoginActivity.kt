@@ -38,7 +38,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                                 finish()
                             }
 
-                            //bro please
                             ApiStatus.ERROR -> {
                                 loadingDialog.dismiss()
                                 tos(it.message ?: "Login Failed")
@@ -49,5 +48,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                 }
             }
         }
+
     }
 }

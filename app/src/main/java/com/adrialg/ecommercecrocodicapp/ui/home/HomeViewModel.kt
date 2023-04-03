@@ -14,6 +14,7 @@ import com.adrialg.ecommercecrocodicapp.data.User
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import javax.inject.Inject
@@ -21,9 +22,10 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val apiService: ApiService, private val gson: Gson, private val session: Session) : BaseViewModel() {
 
-    var product = MutableSharedFlow<List<Product>>()
+    private val _product = MutableSharedFlow<List<Product>>()
+    val product = _product.asSharedFlow()
 
-    // get Profile
+    //Pull Profile
     fun getProfile(
     ) = viewModelScope.launch {
         ApiObserver({ apiService.getProfile() },
@@ -51,7 +53,7 @@ class HomeViewModel @Inject constructor(private val apiService: ApiService, priv
                 override suspend fun onSuccess(response: JSONObject) {
                     val data = response.getJSONArray(ApiCode.DATA).toList<Product>(gson)
                     _apiResponse.send(ApiResponse().responseSuccess())
-                    product.emit(data)
+                    _product.emit(data)
                 }
 
                 override suspend fun onError(response: ApiResponse) {

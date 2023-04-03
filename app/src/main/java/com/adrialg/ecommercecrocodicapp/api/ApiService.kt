@@ -21,21 +21,27 @@ interface ApiService {
     @GET("api/product")
     suspend fun getProduct() : String
 
+    //get product specific
+    @GET("api/product/{id}")
+    suspend fun getProductById(
+        @Path("id") id : Int
+    ) : String
+
     //update Profile
     @FormUrlEncoded
     @POST("api/profile")
     suspend fun updateProfile(
-        @Field("name") name: String,
-        @Field("phone_number") phone: String,
+        @Field("name") name : String,
+        @Field("phone_number") phone : String,
     ) : String
 
     //update Profile w/ Picture
     @Multipart
     @POST("api/profile")
     suspend fun updateProfilePicture(
-        @Query("name") name: String,
-        @Query("phone_number") phone: String,
-        @Part photo:MultipartBody.Part?
+        @Query("name") name : String,
+        @Query("phone_number") phone : String,
+        @Part image : MultipartBody.Part?
     ) : String
 
     //logout

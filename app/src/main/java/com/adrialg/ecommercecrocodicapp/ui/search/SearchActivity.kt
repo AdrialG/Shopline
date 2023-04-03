@@ -1,6 +1,7 @@
 package com.adrialg.ecommercecrocodicapp.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.SearchView
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
@@ -47,35 +48,28 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(R.la
         observe()
         getUser()
         getProduct()
+        search()
 
         binding.recyclerSearch.adapter = adapter
 
         viewModel.productList()
 
-        binding.searchSearch.doOnTextChanged { text, start, before, count ->
-            if (text!!.isNotEmpty()) {
-                val filter = productAll.filter { it?.nameItem?.contains("$text", true) == true }
-                Timber.d("Keyword $text Data : $filter")
-                product.clear()
-                filter.forEach {
-                    product.add(it)
-                }
-                binding.recyclerSearch.adapter?.notifyDataSetChanged()
-                binding.recyclerSearch.adapter?.notifyItemInserted(0)
+        binding.searchBack.setOnClickListener {
+            onBackPressed()
+        }
 
-            } else {
-                product.clear()
-                binding.recyclerSearch.adapter?.notifyDataSetChanged()
-                product.addAll(productAll)
-                Timber.d("noteall : $productAll")
-                binding.recyclerSearch.adapter?.notifyItemInserted(0)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    getUser()
+                    observe()
+                }
             }
         }
 
     }
 
     private fun observe() {
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -91,11 +85,44 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(R.la
                             }
                         }
                     }
+
+                    viewModel.product.collect {
+                        product.clear()
+                        productAll.clear()
+
+                        product.addAll(it)
+                        productAll.addAll(it)
+                        binding.recyclerSearch.adapter?.notifyDataSetChanged()
+                    }
+
                 }
             }
         }
 
     }
+
+    private fun search(){
+        binding.searchSearch.doOnTextChanged { text, start, before, count ->
+            if (text!!.isNotEmpty()) {
+                val filter = productAll.filter { it?.nameItem?.contains("$text", true) == true }
+                Log.d("CekFilter", "Keyword $text Data : $filter")
+                product.clear()
+                filter.forEach {
+                    product.add(it)
+                }
+                binding.recyclerSearch.adapter?.notifyDataSetChanged()
+                binding.recyclerSearch.adapter?.notifyItemInserted(0)
+
+            } else {
+                product.clear()
+                binding.recyclerSearch.adapter?.notifyDataSetChanged()
+                product.addAll(productAll)
+                Log.d("ceknoteall", "noteall : $productAll")
+                binding.recyclerSearch.adapter?.notifyItemInserted(0)
+            }
+        }
+    }
+
 
     private fun getUser() {
         viewModel.getProfile()

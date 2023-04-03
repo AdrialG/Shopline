@@ -22,8 +22,6 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(private val apiService: ApiService, private val gson: Gson, private val session: Session) : BaseViewModel() {
 
-
-
     // get Profile
     fun getProfile(
     ) = viewModelScope.launch {
@@ -35,7 +33,6 @@ class ProfileViewModel @Inject constructor(private val apiService: ApiService, p
                     //Use When Channel
                     _apiResponse.send(ApiResponse().responseSuccess())
                     session.saveUser(data)
-
 
                 }
 

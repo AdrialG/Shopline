@@ -47,7 +47,7 @@
             android:id="@+id/detail_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="2 quids"
+            android:text="6,900,000"
             android:textColor="@color/main_orange"
             android:textSize="26sp"
             android:fontFamily="@font/sora_regular"
@@ -114,7 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/detail_size_text"
+            android:id="@+id/detail_variant_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Variant"
@@ -128,12 +128,39 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_variant_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
             tools:listitem="@layout/detail_colour_item_layout"
-            tools:itemCount="3"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_variant_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/detail_size_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:fontFamily="@font/sora_bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detail_variant_recycler"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_size_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/detail_size_item_layout"
+            android:visibility="invisible"
             android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@id/detail_size_text"
             app:layout_constraintStart_toStartOf="parent"
